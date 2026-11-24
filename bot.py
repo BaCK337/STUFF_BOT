@@ -2,11 +2,12 @@ from pathlib import Path
 from aiogram import Bot, Dispatcher, F
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message, FSInputFile
-from .env import TOKEN
 
+import os
+from dotenv import load_dotenv
 import asyncio
 
-bot = Bot(token=TOKEN)
+bot = Bot(token=os.getenv("TOKEN"))
 dp = Dispatcher()
 
 @dp.message(F.text.lower().contains("охотник"))
